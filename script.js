@@ -1,18 +1,15 @@
 const toggleSwitch = document.getElementById('themeToggle');
 const body = document.body;
 
-
 function enableDarkMode() {
     body.classList.remove('light-mode');
     localStorage.setItem('theme', 'dark');
 }
 
-
 function enableLightMode() {
     body.classList.add('light-mode'); 
     localStorage.setItem('theme', 'light');
 }
-
 
 if (localStorage.getItem('theme') === 'dark') {
     toggleSwitch.checked = true;
@@ -21,7 +18,6 @@ if (localStorage.getItem('theme') === 'dark') {
     toggleSwitch.checked = false;
     enableLightMode();
 }
-
 
 toggleSwitch.addEventListener('change', function() {
     if (this.checked) {
@@ -47,7 +43,7 @@ const reservedWords = new Set([
 ]);
 
 // NOISE WORDS 
-const noiseWords = new Set([]); // Not finalized
+const noiseWords = new Set([]); // Not yet finalized
 
 // DELIMITER MAP 
 const delimiterMap = {
@@ -166,7 +162,7 @@ function lexicalAnalyzer(input) {
                 token: "RES_" + word.toUpperCase(), 
                 type: "Reserved Word" 
             });
-            else if (noiseWords.has(word)) tokens.push({ // Not finalized
+            else if (noiseWords.has(word)) tokens.push({ // Not yet finalized
                 lexeme: word, 
                 token: "NW_" + word.toUpperCase(), 
                 type: "Noise Word"  
