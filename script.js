@@ -43,7 +43,9 @@ const reservedWords = new Set([
 ]);
 
 // NOISE WORDS 
-const noiseWords = new Set([]); // Not yet finalized
+const noiseWords = new Set([
+    "do", "then", "value"
+]); 
 
 // DELIMITER MAP 
 const delimiterMap = {
@@ -162,7 +164,7 @@ function lexicalAnalyzer(input) {
                 token: "RES_" + word.toUpperCase(), 
                 type: "Reserved Word" 
             });
-            else if (noiseWords.has(word)) tokens.push({ // Not yet finalized
+            else if (noiseWords.has(word)) tokens.push({ 
                 lexeme: word, 
                 token: "NW_" + word.toUpperCase(), 
                 type: "Noise Word"  
